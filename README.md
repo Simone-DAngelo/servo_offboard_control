@@ -62,12 +62,11 @@ Per controllare il servo mentre il drone esegue missioni o mantiene la posizione
 
 ### A. Abilitare il controllo attuatori nell'Offboard Mode
 
-Nel topic `/fmu/in/offboard_control_mode`, oltre ai flag di posizione/traiettoria, è obbligatorio attivare il flag `actuator`:
+Nel topic `/fmu/in/offboard_control_mode`, attivare i flag di posizione/traiettoria:
 
 ```cpp
 OffboardControlMode msg{};
 msg.position = true;
-msg.actuator = true;
 msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
 offboard_pub_->publish(msg);
 ```
